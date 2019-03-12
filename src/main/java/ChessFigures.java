@@ -1,0 +1,15 @@
+public enum ChessFigures {
+    WHITE_PAWN,
+    WHITE_TOWER,
+    WHITE_HORSE,
+    WHITE_RUNNER,
+    WHITE_QUEEN,
+    WHITE_KING,
+    BLACK_PAWN,
+    BLACK_TOWER,
+    BLACK_HORSE,
+    BLACK_RUNNER,
+    BLACK_QUEEN,
+    BLACK_KING,
+    EMPTY
+}
