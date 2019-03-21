@@ -11,11 +11,10 @@ public class ChessModel {
     private ChessFigures[] blackRowFigures = new ChessFigures[X_BOARD_SIZE];
     private ChessFigures[] whiteRowFigures = new ChessFigures[X_BOARD_SIZE];
 
-    private boolean whitePlayer = true;
-    private boolean blackPlayer = false;
+    private Players player = Players.WHITE;
 
-    private Point currentField = new Point(-1,-1);
-    private Point beforeField = new Point(-1,-1);
+    private Point currentClickField = new Point(-1,-1);
+    private Point beforeClickField = new Point(-1,-1);
 
     public ChessModel(ChessView theView) {
 
@@ -28,6 +27,18 @@ public class ChessModel {
 
         ChessFigures value = figuresTable[x][y];
         return value;
+    }
+
+    private void setFiguresTable(ChessFigures figure, int x, int y){
+
+        figuresTable[x][y] = figure;
+    }
+
+    public void moveFiguresTable(int x1, int y1, int x2, int y2){
+
+        ChessFigures moveFigure = getFiguresTable(x1,y1);
+        setFiguresTable(moveFigure,x2,y2);
+        setFiguresTable(ChessFigures.EMPTY,x1,y1);
     }
 
     private void figuresPositionStart(){
@@ -80,35 +91,39 @@ public class ChessModel {
         }
     }
 
-    private void nextPlayer(){
+    public Players getPlayer(){
+        return player;
+    }
+/*
+    public void nextPlayer(){
 
         if(whitePlayer){
             whitePlayer = false;
             blackPlayer = true;
-            System.out.println("White Player");
+            System.out.println("Black Player");
         }
         else{
             whitePlayer = true;
             blackPlayer = false;
-            System.out.println("Black Player");
+            System.out.println("White Player");
         }
     }
-
-    public Point getCurrentField(){
-        return currentField;
+*/
+    public Point getCurrentClickField(){
+        return currentClickField;
     }
 
-    public void setCurrentField(Point currentField){
-        this.currentField.x = currentField.x / 100;
-        this.currentField.y = currentField.y / 100;
+    public void setCurrentClickField(Point currentClickField){
+        this.currentClickField.x = currentClickField.x;
+        this.currentClickField.y = currentClickField.y;
     }
 
-    public Point getBeforeField(){
-        return beforeField;
+    public Point getBeforeClickField(){
+        return beforeClickField;
     }
 
-    public void setBeforeField(){
-        this.beforeField = new Point(currentField.x, currentField.y);
+    public void setBeforeClickField(){
+        this.beforeClickField = new Point(currentClickField.x, currentClickField.y);
 
     }
 }

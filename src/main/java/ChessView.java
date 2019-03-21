@@ -35,6 +35,7 @@ public class ChessView extends JFrame {
             jLayeredPane.add(theBoard,new Integer(4));
             jLayeredPane.add(theMarkFigure,new Integer(5));
         }
+
         for(int i=0; i<NUMBER_FIGURES; i++) {
             if(figures[i] == null){
                 break;
@@ -59,5 +60,37 @@ public class ChessView extends JFrame {
             }
         }
         setLayeredPane(getJLayeredPane(figuresList));
+    }
+
+    public void changeFigureLocation(int x1, int y1, int x2, int y2){
+
+        int x,y;
+        x = x1 * 100;
+        y = y1 * 100;
+
+        for(int i=0; i < (jLayeredPane.getComponentCount() - 2); i++){
+//            System.out.println(jLayeredPane.getComponent(i).getX());
+//            System.out.println(jLayeredPane.getComponent(i).getY());
+            if((x==jLayeredPane.getComponent(i).getX()) && (y==jLayeredPane.getComponent(i).getY())){
+                jLayeredPane.getComponent(i).setLocation(x2*100,y2*100);
+                break;
+            }
+        }
+    }
+
+    public void deleteFigure(int x2, int y2) {
+
+        int x,y;
+        x = x2 * 100;
+        y = y2 * 100;
+
+        for(int i=0; i < (jLayeredPane.getComponentCount() - 2); i++){
+//            System.out.println(jLayeredPane.getComponent(i).getX());
+//            System.out.println(jLayeredPane.getComponent(i).getY());
+            if((x==jLayeredPane.getComponent(i).getX()) && (y==jLayeredPane.getComponent(i).getY())){
+                jLayeredPane.remove(i);
+                break;
+            }
+        }
     }
 }

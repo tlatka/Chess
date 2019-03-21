@@ -50,14 +50,8 @@ public class MarkFigure extends JLabel {
 
     }
 
-    public void toggleFocusFigure(){
-
-        if(focusFigure) {
-            this.focusFigure = false;
-        }
-        else{
-            this.focusFigure = true;
-        }
+    public boolean getFocusFigure(){
+        return focusFigure;
     }
 
     public void setFocusFigure(boolean focusFigure){

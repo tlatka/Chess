@@ -11,5 +11,11 @@ public enum ChessFigures {
     BLACK_RUNNER,
     BLACK_QUEEN,
     BLACK_KING,
-    EMPTY
+    EMPTY,
+    PAWN,
+    TOWER,
+    HORSE,
+    RUNNER,
+    QUEEN,
+    KING
 }
